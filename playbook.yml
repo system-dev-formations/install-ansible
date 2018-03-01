@@ -1,5 +1,8 @@
 ---
 - hosts: all 
   become: true
+  gather_facts: true
   roles:
-    - sysdev.ansible
+    - {role: sysdev.ansible-fedora, when: ansible_distribution == "Fedora" }
+    - {role: sysdev.ansible-centos, when: ansible_distribution == "CentOS" }
+    - {role: sysdev.ansible-centos, when: ansible_distribution == "Ubuntu" }

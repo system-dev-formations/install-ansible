@@ -2,19 +2,20 @@
 # tasks for sysdev.ansible
 - name: Install require packages
   become: true
-  yum: name={{item}} state=present update_cache=yes
+  apt: name={{item}} state=present
   with_items:
     - git
     - make
     - gcc
-    - python-devel
-    - libffi-devel
-    - openssl-devel
-    - epel-release
+    - python
+    - python-yaml
+    - python-paramiko
+    - python-jinja2
+    - python-httplib2 
+    - python-pip
+    - libffi-dev
+    - libssl-dev
     - python-sphinx
-- name: Add python-pip
-  yum: name=python-pip state=present
-  changed_when: false
 - name: Update python-pip
   command:  pip install --upgrade pip 
   changed_when: false
