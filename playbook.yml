@@ -5,4 +5,4 @@
   roles:
     - {role: sysdev.ansible-fedora, when: ansible_distribution == "Fedora" }
     - {role: sysdev.ansible-centos, when: ansible_distribution == "CentOS" }
-    - {role: sysdev.ansible-centos, when: ansible_distribution == "Ubuntu" }
+    - {role: sysdev.ansible-ubuntu, when: ansible_distribution == "Ubuntu" }
